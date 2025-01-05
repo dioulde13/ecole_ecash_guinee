@@ -2,9 +2,10 @@
 <div class="flex flex-col h-screen">
     <!-- Main Layout -->
     <div class="flex h-full">
-        
+
         <!-- Sidebar (visible sur les écrans moyens et grands) -->
-        <aside class="bg-white w-64 p-4 flex-shrink-0 transition-transform transform lg:translate-x-0 z-50 fixed lg:relative top-0 left-0 bottom-0 lg:block h-full"
+        <aside
+            class="bg-white w-64 p-4 flex-shrink-0 transition-transform transform lg:translate-x-0 z-50 fixed lg:relative top-0 left-0 bottom-0 lg:block h-full"
             [class.-translate-x-full]="!isSidebarOpen">
             <!-- Sidebar Header (Visible uniquement sur mobile) -->
             <div class="flex justify-between lg:hidden">
@@ -23,39 +24,50 @@
                 <div class="text-gray-100 text-xl">
                     <div class="p-2.5 mt-1 flex items-center">
                         <!-- Logo -->
-                        <img src="https://img.freepik.com/vecteurs-premium/symboles-identite-ecole-universite-insignes-logo-vecteur-vecteur-conception-du-logo-enseignement-universitaire_1112812-2705.jpg?semt=ais_hybrid" alt="Logo" class="h-14  w-40 mr-3">
+                        <img src="https://img.freepik.com/vecteurs-premium/symboles-identite-ecole-universite-insignes-logo-vecteur-vecteur-conception-du-logo-enseignement-universitaire_1112812-2705.jpg?semt=ais_hybrid"
+                            alt="Logo" class="h-14  w-40 mr-3">
                     </div>
                 </div>
 
                 <!-- Menus -->
-                <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white"
-                    [ngClass]="{'bg-blue-600': activeMenu === 'home'}" (click)="selectMenu('home')">
-                    <i class="bi bi-house-door-fill" [ngStyle]="{'color': activeMenu === 'home' ? 'white' : '#0E3E7E'}"></i>
-                    <span class="text-[15px] ml-4 font-bold"
-                        [ngStyle]="{'color': activeMenu === 'home' ? 'white' : '#0E3E7E'}">
-                        Tableau de bord
-                    </span>
-                </div>
-                <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white"
-                    [ngClass]="{'bg-blue-600': activeMenu === 'transaction'}" (click)="selectMenu('transaction')">
-                    <i class="bi bi-coin" [ngStyle]="{'color': activeMenu === 'transaction' ? 'white' : '#0E3E7E'}"></i>
-                    <span class="text-[15px] ml-4 font-bold"
-                        [ngStyle]="{'color': activeMenu === 'transaction' ? 'white' : '#0E3E7E'}">
-                        Transaction
-                    </span>
-                </div>
+                <a routerLink="/dashboard">
+                    <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white"
+                        [ngClass]="{'bg-blue-600': activeMenu === 'home'}" (click)="selectMenu('home')">
+                        <i class="bi bi-house-door-fill"
+                            [ngStyle]="{'color': activeMenu === 'home' ? 'white' : '#0E3E7E'}"></i>
+                        <span class="text-[15px] ml-4 font-bold"
+                            [ngStyle]="{'color': activeMenu === 'home' ? 'white' : '#0E3E7E'}">
+                            Tableau de bord
+                        </span>
+                    </div>
+                </a>
+                <a routerLink="/transanction">
+                    <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white"
+                        [ngClass]="{'bg-blue-600': activeMenu === 'transaction'}" (click)="selectMenu('transaction')">
+                        <i class="bi bi-coin"
+                            [ngStyle]="{'color': activeMenu === 'transaction' ? 'white' : '#0E3E7E'}"></i>
+                        <span class="text-[15px] ml-4 font-bold"
+                            [ngStyle]="{'color': activeMenu === 'transaction' ? 'white' : '#0E3E7E'}">
+                            Transaction
+                        </span>
+                    </div>
+                </a>
+
                 <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white"
                     [ngClass]="{'bg-blue-600': activeMenu === 'payment'}" (click)="selectMenu('payment')">
-                    <i class="bi bi-credit-card" [ngStyle]="{'color': activeMenu === 'payment' ? 'white' : '#0E3E7E'}"></i>
+                    <i class="bi bi-credit-card"
+                        [ngStyle]="{'color': activeMenu === 'payment' ? 'white' : '#0E3E7E'}"></i>
                     <span class="text-[15px] ml-4 font-bold"
                         [ngStyle]="{'color': activeMenu === 'payment' ? 'white' : '#0E3E7E'}">
                         Paiement
                     </span>
                 </div>
-               
+
                 <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white"
-                    [ngClass]="{'bg-blue-600': activeMenu === 'school-management'}" (click)="selectMenu('school-management')">
-                    <i class="bi bi-person-lines-fill" [ngStyle]="{'color': activeMenu === 'school-management' ? 'white' : '#0E3E7E'}"></i>
+                    [ngClass]="{'bg-blue-600': activeMenu === 'school-management'}"
+                    (click)="selectMenu('school-management')">
+                    <i class="bi bi-person-lines-fill"
+                        [ngStyle]="{'color': activeMenu === 'school-management' ? 'white' : '#0E3E7E'}"></i>
                     <span class="text-[15px] ml-4 font-bold"
                         [ngStyle]="{'color': activeMenu === 'school-management' ? 'white' : '#0E3E7E'}">
                         Gestion Ecole
@@ -86,64 +98,7 @@
                     </svg>
                 </button>
             </header>
-
-            <!-- Main Section -->
-            <div class="flex-1 p-6 overflow-y-auto relative">
-                <!-- Hero Section -->
-                <div class="relative bg-cover bg-center h-40 flex bg-gradient-to-r from-blue-500/80 to-blue-500/80"
-                    style="background-image: url('https://img.freepik.com/photos-gratuite/etudiants-connaissant-bonne-reponse_329181-14271.jpg');">
-                    <div class="text-center text-white">
-                        <h1 class="text-3xl font-bold">Bienvenue sur notre plateforme</h1>
-                        <p class="mt-2 text-lg">Un système de paiement de frais de scolarité</p>
-                    </div>
-                </div>
-
-                <!-- Cards Section -->
-                <section class="container mx-auto mt-6">
-                    <div class="grid grid-cols-1 sm:gap-4 md:grid-cols-2 lg:grid-cols-3 md:gap-6">
-                        <!-- Card Template -->
-                        <div class="bg-white shadow-md rounded-lg p-4 relative z-10 -mt-20 mb-24">
-                            <h5 class="text-xl font-bold">Card title</h5>
-                            <h6 class="text-gray-500 mb-2">Card subtitle</h6>
-                            <p class="text-gray-700">
-                                Some quick example text to build on the card title and make up the bulk of the card's
-                                content.
-                            </p>
-                            <div class="mt-4">
-                                <a href="#" class="text-blue-500 hover:underline">Card link</a>
-                                <a href="#" class="ml-4 text-blue-500 hover:underline">Another link</a>
-                            </div>
-                        </div>
-
-                        <!-- Duplicate Cards -->
-                        <div class="bg-white shadow-md rounded-lg p-4 relative z-10 -mt-20 mb-24">
-                            <h5 class="text-xl font-bold">Card title</h5>
-                            <h6 class="text-gray-500 mb-2">Card subtitle</h6>
-                            <p class="text-gray-700">
-                                Some quick example text to build on the card title and make up the bulk of the card's
-                                content.
-                            </p>
-                            <div class="mt-4">
-                                <a href="#" class="text-blue-500 hover:underline">Card link</a>
-                                <a href="#" class="ml-4 text-blue-500 hover:underline">Another link</a>
-                            </div>
-                        </div>
-
-                        <div class="bg-white shadow-md rounded-lg p-4 relative z-10 -mt-20 mb-24">
-                            <h5 class="text-xl font-bold">Card title</h5>
-                            <h6 class="text-gray-500 mb-2">Card subtitle</h6>
-                            <p class="text-gray-700">
-                                Some quick example text to build on the card title and make up the bulk of the card's
-                                content.
-                            </p>
-                            <div class="mt-4">
-                                <a href="#" class="text-blue-500 hover:underline">Card link</a>
-                                <a href="#" class="ml-4 text-blue-500 hover:underline">Another link</a>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </div>
+            <router-outlet></router-outlet>
         </main>
     </div>
 </div>
