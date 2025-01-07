@@ -27,14 +27,10 @@
               }
             ],
             "styles": [
-              "src/styles.css",
-              "src/assets/css/bootstrap/bootstrap.css",
-              "src/assets/vendor/remixicon/fonts/remixicon.css",
-              "src/assets/vendor/tui-calendar/tui-calendar/dist/tui-calendar.css",
-              "src/assets/vendor/tui-calendar/tui-date-picker/dist/tui-date-picker.css",
-              "src/assets/vendor/tui-calendar/tui-time-picker/dist/tui-time-picker.css"
+              "src/styles.css"
             ],
-            "scripts": [],
+            "scripts": [
+            ],
             "server": "src/main.server.ts",
             "outputMode": "server",
             "ssr": {
