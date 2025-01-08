@@ -8,6 +8,9 @@ import { FacturesComponent } from './pages/factures/factures.component';
 import { EcolesComponent } from './pages/ecoles/ecoles.component';
 import { GestionElevesComponent } from './pages/gestion-eleves/gestion-eleves.component';
 import { ParentsComponent } from './pages/parents/parents.component';
+import { CommunicationComponent } from './pages/communication/communication.component';
+import { UtilisateursComponent } from './pages/utilisateurs/utilisateurs.component';
+import { ParametreComponent } from './pages/parametre/parametre.component';
 
 export const routes: Routes = [
   {
@@ -50,6 +53,18 @@ export const routes: Routes = [
       {
         path: 'parent',
         component: ParentsComponent,
+      },
+      {
+        path: 'communication',
+        component: CommunicationComponent,
+      },
+      {
+        path: 'utilisateur',
+        component: UtilisateursComponent,
+      },
+      {
+        path: 'parametre',
+        component: ParametreComponent,
       },
     ],
   },
