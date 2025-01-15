@@ -11,6 +11,8 @@ import { RouterOutlet } from '@angular/router';
   styleUrls: ['./layout.component.css']
 })
 export class LayoutComponent {
+
+  
   menus = [
     { id: 'dashboard', label: 'Tableau De Bord', link: '/dashboard', icon: 'bi bi-grid' },
     { id: 'transactions', label: 'Transactions', link: '/transactions', icon: 'bi bi-file-text' },
@@ -40,4 +42,5 @@ export class LayoutComponent {
   closeSideBar() {
     this.isSidebarOpen = false;
   }
+  
 }

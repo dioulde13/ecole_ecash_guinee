@@ -1,0 +1,9 @@
+{
+    "/api": {
+      "target": "https://schoolpayapidev.ecash-guinee.com",
+      "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+    }
+  }
+  
