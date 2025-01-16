@@ -15,7 +15,7 @@ import { CommonModule } from '@angular/common';  // Importer CommonModule
 
 export class LoginComponent {
 
-  msisdn = '';
+  email = '';
   password = '';
   errorMessage = '';
   isLoading: boolean = false;
@@ -25,18 +25,23 @@ export class LoginComponent {
 
   login(): void {
     this.isLoading = true; // Activer l'indicateur de chargement
-    this.authService.login(this.msisdn, this.password).subscribe({
+    this.authService.login(this.email, this.password).subscribe({
       next: (response) => {
+        if(response.status !== 403){
+        console.log(response);
         if (response && response.data && response.data.token) {
           this.authService.saveToken(response.data.token);
-          console.log(response);
-          this.router.navigate(['/dashboard']); // Redirection après connexion
+             this.authService.setUserInfo(response.data.user);  // Sauvegarder les infos utilisateur             
+              this.router.navigate(['/dashboard']);   
         } else {
           // Gestion si le token est manquant dans la réponse
           this.errorMessage = 'Utilisateur non trouvé. Veuillez saisir les informations correctes.';
           console.log(this.errorMessage);
           this.isLoading = false;
         }
+      }else{
+        this.errorMessage = response.message;
+      }
       },
       error: (err) => {
         this.isLoading = false; // Désactiver l'indicateur de chargement

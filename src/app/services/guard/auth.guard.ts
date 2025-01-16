@@ -7,19 +7,20 @@ import { AuthService } from '../authService/auth.service';
   providedIn: 'root',
 })
 export class AuthGuard implements CanActivate {
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router) { }
 
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean> | Promise<boolean> | boolean {
-    // Vérifier si l'utilisateur est authentifié
+    // Vérifier si l'utilisateur est authentifié et si le token n'est pas expiré
     if (this.authService.isAuthenticated()) {
-      return true;
+      return true; // Accès autorisé
     } else {
-      // Rediriger vers la page de login si non authentifié
-      this.router.navigate(['/login']);
-      return false;
+      // Redirige vers la page de login avec un paramètre de retour (facultatif)
+      this.authService.logout(); // Supprimer le token si expiré
+      this.router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
+      return false; // Bloque l'accès
     }
   }
 }

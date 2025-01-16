@@ -1,4 +1,5 @@
-import { Routes } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { Routes ,RouterModule} from '@angular/router';
 import { LoginComponent } from './pages/login/login.component';
 import { LayoutComponent } from './composants/layout/layout.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
@@ -95,3 +96,8 @@ export const routes: Routes = [
     pathMatch: 'full',
   },
 ];
+@NgModule({
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
+  exports: [RouterModule],
+})
+export class AppRoutingModule {}

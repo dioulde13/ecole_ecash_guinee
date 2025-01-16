@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common'; 
 import { RouterOutlet } from '@angular/router';
+import { AuthService } from '../../services/authService/auth.service';
+import { Router } from '@angular/router';
 
 
 
@@ -10,8 +12,16 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.css']
 })
-export class LayoutComponent {
+export class LayoutComponent implements OnInit{
 
+  userInfo: any = null;
+  constructor(private authService: AuthService, private router: Router) {}
+
+  ngOnInit(): void {
+    // Récupérer les informations de l'utilisateur connecté
+    this.userInfo = this.authService.getUserInfo();
+    console.log('Informations utilisateur:', this.userInfo);
+  }
   
   menus = [
     { id: 'dashboard', label: 'Tableau De Bord', link: '/dashboard', icon: 'bi bi-grid' },
@@ -41,6 +51,26 @@ export class LayoutComponent {
 
   closeSideBar() {
     this.isSidebarOpen = false;
+  }
+
+  isDropdownOpen = false;
+
+
+  toggleDropdown() {
+    this.isDropdownOpen = !this.isDropdownOpen;
+  }
+
+  closeDropdown() {
+    this.isDropdownOpen = false;
+  }
+
+  toggleSidenav() {
+    // this.sidenav.toggle();
+  }
+
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/login']); // Rediriger vers la page de login après déconnexion
   }
   
 }

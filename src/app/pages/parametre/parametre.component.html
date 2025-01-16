@@ -17,11 +17,10 @@
             <div class="col-lg-12 card-profile">
                 <div class="card card-block card-stretch card-height">
                     <div class="card-body">
-                        <ul class="d-flex nav nav-pills mb-3 text-center " id="profile-pills-tab"
-                            role="tablist">
+                        <ul class="d-flex nav nav-pills mb-3 text-center " id="profile-pills-tab" role="tablist">
                             <li class="nav-item">
                                 <a class="nav-link active show" data-toggle="pill" href="#profile1" role="tab"
-                                    aria-selected="false">Informations. G l'établissement</a>
+                                    aria-selected="false"> Gestion utilisateurs</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" data-toggle="pill" href="#profile2" role="tab"
@@ -29,7 +28,7 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" data-toggle="pill" href="#profile3" role="tab"
-                                    aria-selected="false">Gestion utilisateurs</a>
+                                    aria-selected="false">Informations. G l'établissement</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" data-toggle="pill" href="#profile4" role="tab"
@@ -41,27 +40,39 @@
                         <div class="profile-content tab-content">
 
                             <div id="profile1" class="tab-pane fade active show">
-                                <!-- debut contenu -->
+
                                 <div class="col-lg-12">
                                     <div class="card">
                                         <div class="card-body">
                                             <div
                                                 class="d-flex flex-wrap align-items-center justify-content-between breadcrumb-content">
-                                                <h5>Informations de l'etablissement</h5>
-                                                <div
-                                                    class="d-flex flex-wrap align-items-center justify-content-between">
-
-
-                                                    <div class="pl-3 btn-new border-left">
-                                                        <a href="#" class="btn btn-primary"
-                                                            data-target="#new-project-modal"
-                                                            data-toggle="modal">Ajouter Information</a>
-                                                    </div>
+                                                <div class="profile-container">
+                                                    <table class="profile-table" *ngIf="userInfo">
+                                                        <tr>
+                                                            <td>Nom</td>
+                                                            <td>{{userInfo.Firstname}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Prenom</td>
+                                                            <td>{{userInfo.Lastname}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Email</td>
+                                                            <td>{{userInfo.email}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Telephone</td>
+                                                            <td>{{userInfo.cellnumber}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Role</td>
+                                                            <td>{{userInfo.role_name}}</td>
+                                                        </tr>
+                                                    </table>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
 
                             </div>
@@ -79,29 +90,31 @@
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
-
-
                             </div>
                             <!-- fin contenu -->
 
                             <!-- debut contenu profile3 -->
                             <div id="profile3" class="tab-pane fade">
+                                <!-- debut contenu -->
                                 <div class="col-lg-12">
                                     <div class="card">
                                         <div class="card-body">
                                             <div
                                                 class="d-flex flex-wrap align-items-center justify-content-between breadcrumb-content">
-                                                <h5>Gestion Utilisateurs</h5>
-
+                                                <h5>Informations de l'etablissement</h5>
+                                                <div
+                                                    class="d-flex flex-wrap align-items-center justify-content-between">
+                                                    <div class="pl-3 btn-new border-left">
+                                                        <a href="#" class="btn btn-primary"
+                                                            data-target="#new-project-modal" data-toggle="modal">Ajouter
+                                                            Information</a>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
-
-
                             </div>
                             <!-- fin contenu -->
 
@@ -179,15 +192,13 @@
                     <div class="col-lg-4">
                         <div class="form-group mb-3">
                             <label for="exampleInputText01">Nom parent</label>
-                            <input type="text" class="form-control" id="exampleInputText01"
-                                placeholder="Nom parent">
+                            <input type="text" class="form-control" id="exampleInputText01" placeholder="Nom parent">
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="form-group mb-3">
                             <label for="exampleInputText01">Prenom parent</label>
-                            <input type="text" class="form-control" id="exampleInputText01"
-                                placeholder="Prenom parent">
+                            <input type="text" class="form-control" id="exampleInputText01" placeholder="Prenom parent">
                         </div>
                     </div>
                     <div class="col-lg-4">

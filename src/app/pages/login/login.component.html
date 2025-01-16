@@ -15,29 +15,26 @@
                                  {{ errorMessage }}
                                </div>
                               <!-- <h2 class="mb-2 text-white">Connecter vous</h2> -->
-                              <img src="/assets/images/logo2.png" alt="logo" style="width:100%">
-
+                              <img src="/assets/images/school.jpeg" alt="logo" style="width: 90vh; height: 25vh;">
                               <form (ngSubmit)="login()" #loginForm="ngForm" class="space-y-4">
                                  <div class="row">
                                     <div class="col-lg-12">
                                        <div class="form-group mb-3">
-                                          <label for="exampleInputText01">Telephone</label>
-                                          <input type="text" name="msisdn" [(ngModel)]="msisdn" required
-                                             class="form-control" id="exampleInputText01" placeholder="Telephone">
+                                          <label for="exampleInputText01">Email</label>
+                                          <input type="email" name="email" [(ngModel)]="email" required
+                                             class="form-control" id="exampleInputText01" placeholder="Email">
                                        </div>
                                     </div>
-
-
                                     <div class="col-lg-12">
                                        <div class="form-group mb-3">
                                           <label for="exampleInputText01">Mot de passe</label>
-                                          <input type="Pasword" name="password" [(ngModel)]="password" required
+                                          <input type="password" name="password" [(ngModel)]="password" required
                                              class="form-control" id="exampleInputText01" placeholder="Mot de passe">
                                        </div>
                                     </div>
-
                                  </div>
-                                 <button type="submit" class="btn btn-primary col-lg-12">Connecter vous</button>
+                                 <button type="submit" class="btn btn-primary btn-yellow col-lg-12">Connecter vous</button>
+
                               </form>
                            </div>
                         </div>
