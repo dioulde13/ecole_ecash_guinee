@@ -22,6 +22,6 @@ export const appConfig: ApplicationConfig = {
     { 
       provide: LocationStrategy, 
       useClass: PathLocationStrategy 
-    },
+    }, provideAnimationsAsync(),
   ]
 };

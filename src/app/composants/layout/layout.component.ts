@@ -3,12 +3,13 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { AuthService } from '../../services/authService/auth.service';
 import { Router } from '@angular/router';
+import { RouterLink} from '@angular/router';
 
 
 
 @Component({
   selector: 'app-layout',
-  imports: [CommonModule, RouterOutlet],
+  imports: [CommonModule, RouterOutlet, RouterLink],
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.css']
 })

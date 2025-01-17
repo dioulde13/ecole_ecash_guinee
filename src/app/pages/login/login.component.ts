@@ -32,7 +32,7 @@ export class LoginComponent {
         if (response && response.data && response.data.token) {
           this.authService.saveToken(response.data.token);
              this.authService.setUserInfo(response.data.user);  // Sauvegarder les infos utilisateur             
-              this.router.navigate(['/dashboard']);   
+              this.router.navigate(['/dashboards']);   
         } else {
           // Gestion si le token est manquant dans la réponse
           this.errorMessage = 'Utilisateur non trouvé. Veuillez saisir les informations correctes.';

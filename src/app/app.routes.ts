@@ -13,6 +13,7 @@ import { CommunicationComponent } from './pages/communication/communication.comp
 import { UtilisateursComponent } from './pages/utilisateurs/utilisateurs.component';
 import { ParametreComponent } from './pages/parametre/parametre.component';
 import { AuthGuard } from '../app/services/guard/auth.guard';
+import { ClasseComponent } from './pages/classes/classe.component';
 
 
 export const routes: Routes = [
@@ -30,12 +31,12 @@ export const routes: Routes = [
     component: LayoutComponent,
     children: [
       {
-        path: 'dashboard',
+        path: 'dashboards',
         component: DashboardComponent,
         canActivate: [AuthGuard], // Appliquer le garde sur cette route
       },
       {
-        path: 'transanction',
+        path: 'transanctions',
         component: TransanctionComponent,
         canActivate: [AuthGuard], // Appliquer le garde sur cette route
 
@@ -53,37 +54,43 @@ export const routes: Routes = [
 
       },
       {
-        path: 'ecole',
+        path: 'ecoles',
         component: EcolesComponent,
         canActivate: [AuthGuard], // Appliquer le garde sur cette route
 
       },
       {
-        path: 'eleve',
+        path: 'classes',
+        component: ClasseComponent,
+        canActivate: [AuthGuard], // Appliquer le garde sur cette route
+
+      },
+      {
+        path: 'eleves',
         component: GestionElevesComponent,
         canActivate: [AuthGuard], // Appliquer le garde sur cette route
 
       },
       {
-        path: 'parent',
+        path: 'parents',
         component: ParentsComponent,
         canActivate: [AuthGuard], // Appliquer le garde sur cette route
 
       },
       {
-        path: 'communication',
+        path: 'communications',
         component: CommunicationComponent,
         canActivate: [AuthGuard], // Appliquer le garde sur cette route
 
       },
       {
-        path: 'utilisateur',
+        path: 'utilisateurs',
         component: UtilisateursComponent,
         canActivate: [AuthGuard], // Appliquer le garde sur cette route
 
       },
       {
-        path: 'parametre',
+        path: 'parametres',
         component: ParametreComponent,
         canActivate: [AuthGuard], // Appliquer le garde sur cette route
 

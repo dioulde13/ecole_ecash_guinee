@@ -1,0 +1,8 @@
+.custom-snackbar {
+    background-color: white !important; /* Fond blanc */
+    color: black !important; /* Texte noir */
+    border: 1px solid #ccc; /* Bordure grise optionnelle */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Ombre douce */
+    z-index: 2000; /* S'assure que le snackbar est au-dessus du modal */
+  }
+  
